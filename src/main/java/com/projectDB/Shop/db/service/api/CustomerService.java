@@ -6,10 +6,11 @@ import org.springframework.lang.Nullable;
 import java.util.List;
 
 public interface CustomerService {
-
     List<Customer> getCustomer();
-    
-    @Nullable
-    Customer get(int id);
 
+    @Nullable
+    public Customer get(int id);//We can check ID if contains in DB, If no, return null
+
+    @Nullable
+    Integer add(Customer customer); // return generated id;
 }
