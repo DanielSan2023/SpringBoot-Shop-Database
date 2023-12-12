@@ -12,7 +12,7 @@ public class Customer {
     @NonNull
     private String name;
     @NonNull
-    private String surename;
+    private String surname;
     @NonNull
     private String email;
     @NonNull
@@ -26,10 +26,10 @@ public class Customer {
     public Customer() {
     }
 
-    public Customer(@NonNull String name, @NonNull String surename, @NonNull String email,
+    public Customer(@NonNull String name, @NonNull String surname, @NonNull String email,
                     @NonNull String address, int age, @Nullable String phoneNumber) {
         this.name = name;
-        this.surename = surename;
+        this.surname = surname;
         this.email = email;
         this.address = address;
         this.age = age;
@@ -56,12 +56,12 @@ public class Customer {
     }
 
     @NonNull
-    public String getSurename() {
-        return surename;
+    public String getSurname() {
+        return surname;
     }
 
-    public void setSurename(@NonNull String surename) {
-        this.surename = surename;
+    public void setSurname(@NonNull String surname) {
+        this.surname = surname;
     }
 
     @NonNull
@@ -106,13 +106,13 @@ public class Customer {
         if (o == null || getClass() != o.getClass()) return false;
         Customer customer = (Customer) o;
         return id == customer.id && age == customer.age && Objects
-                .equals(name, customer.name) && Objects.equals(surename, customer.surename)
+                .equals(name, customer.name) && Objects.equals(surname, customer.surname)
                 && Objects.equals(email, customer.email) && Objects.equals(address, customer.address)
                 && Objects.equals(phoneNumber, customer.phoneNumber);
     }
 
     @Override
     public int hashCode() { // create object  hashCode for collection ,example HashMap
-        return Objects.hash(id, name, surename, email, address, age, phoneNumber);
+        return Objects.hash(id, name, surname, email, address, age, phoneNumber);
     }
 }

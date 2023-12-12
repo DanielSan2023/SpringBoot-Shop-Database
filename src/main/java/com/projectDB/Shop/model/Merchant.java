@@ -22,6 +22,10 @@ public class Merchant {
         this.address = address;
     }
 
+    public Merchant() {
+
+    }
+
     @Nullable
     public Integer getId() {
         return id;
