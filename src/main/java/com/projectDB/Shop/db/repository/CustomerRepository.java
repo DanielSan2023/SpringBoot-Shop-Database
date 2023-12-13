@@ -14,6 +14,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 import java.sql.Types;
+import java.util.List;
 
 @Component
 public class CustomerRepository {
@@ -38,9 +39,7 @@ public class CustomerRepository {
 
     public Integer add(Customer customer) {
         final String sql = "INSERT INTO customer(name, surname, email, address, age, phone_number) VALUES (?, ?, ?, ?, ?, ?)";
-
         KeyHolder keyHolder = new GeneratedKeyHolder();
-
         jdbcTemplate.update(new PreparedStatementCreator() {
             @Override
             public PreparedStatement createPreparedStatement(Connection con) throws SQLException {
@@ -66,6 +65,10 @@ public class CustomerRepository {
         }
     }
 
+    public List<Customer> getAll(){
+        final String sql = "select * from customer";
+        return jdbcTemplate.query(sql,customerRowMapper);
+    }
 
 }
 
