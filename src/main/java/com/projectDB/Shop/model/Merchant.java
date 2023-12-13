@@ -67,7 +67,10 @@ public class Merchant {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Merchant merchant = (Merchant) o;
-        return Objects.equals(id, merchant.id) && Objects.equals(name, merchant.name) && Objects.equals(email, merchant.email) && Objects.equals(address, merchant.address);
+        return Objects.equals(id, merchant.id) &&
+                Objects.equals(name, merchant.name)    &&
+                Objects.equals(email, merchant.email) &&
+                Objects.equals(address, merchant.address);
     }
 
     @Override
