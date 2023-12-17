@@ -7,6 +7,7 @@ import java.sql.Timestamp;
 import java.time.Instant;
 import java.util.Objects;
 
+
 public class Product {
     @Nullable
     private Integer id;   // Intreger -id has the ability to represent the null value
@@ -18,7 +19,7 @@ public class Product {
     private String description;
     @NonNull
     private double price;
-    @NonNull
+    @Nullable
     private Timestamp createAd;    //Created Time
     @NonNull
     private int available;
@@ -27,8 +28,7 @@ public class Product {
     public Product() {
     }
 
-    public Product(@Nullable Integer id, int merchantId, @NonNull String name, @NonNull String description, double price, int available) {
-        this.id = id;
+    public Product(int merchantId, @NonNull String name, @NonNull String description, double price, int available) {
         this.merchantId = merchantId;
         this.name = name;
         this.description = description;
@@ -80,7 +80,7 @@ public class Product {
         this.price = price;
     }
 
-    @NonNull
+    @Nullable
     public Timestamp getCreateAd() {
         return createAd;
     }
@@ -105,8 +105,9 @@ public class Product {
         Product product = (Product) o;
         return merchantId == product.merchantId && Double.compare(product.price, price) == 0
                 && available == product.available && Objects.equals(id, product.id)
-                && Objects.equals(name, product.name) && Objects.equals(description, product.description)
-                && Objects.equals(createAd, product.createAd);
+                && Objects.equals(name, product.name) && Objects.equals(description, product.description) &&
+                createAd.getTime() == product.createAd.getTime();
+
     }
 
     @Override

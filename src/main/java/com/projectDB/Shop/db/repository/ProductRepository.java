@@ -47,6 +47,9 @@ public class ProductRepository {
                 ps.setString(3, product.getDescription());
                 ps.setDouble(4, product.getPrice());
                 ps.setTimestamp(5, product.getCreateAd());
+                if (product.getCreateAd() == null) {
+                    product.setCreateAd(Timestamp.from(Instant.now()));
+                }
                 ps.setInt(6, product.getAvailable());
                 return ps;
             }

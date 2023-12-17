@@ -16,7 +16,7 @@ public class MerchantServiceImpl implements MerchantService {
     }
 
     @Override
-    public List<Merchant> getMerchant() {
+    public List<Merchant> getMerchants() {
         return merchantRepository.getAll();
     }
 

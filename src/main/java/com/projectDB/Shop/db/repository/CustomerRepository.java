@@ -29,7 +29,7 @@ public class CustomerRepository {
 
 
     public Customer get(int id) {
-        final String sql = "select * from customer where cumstomer.id = " + id;
+        final String sql = "select * from customer where customer.id = " + id;
         try {
             return jdbcTemplate.queryForObject(sql, customerRowMapper);
         } catch (EmptyResultDataAccessException e) {

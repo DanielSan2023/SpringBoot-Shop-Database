@@ -23,7 +23,7 @@ import java.time.Instant;
 
 @ExtendWith(SpringExtension.class)
 @SpringBootTest
-@DirtiesContext(classMode = DirtiesContext.ClassMode.BEFORE_CLASS)
+@DirtiesContext(classMode = DirtiesContext.ClassMode.BEFORE_CLASS)// cleanH2 DB
 public class DBInsertTests {
 
     private final String insertCustomer = "INSERT INTO customer(name, surname, email, address, age, phone_number) values (?, ?, ?, ?, ?, ?)";
