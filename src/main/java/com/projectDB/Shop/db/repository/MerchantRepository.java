@@ -4,6 +4,7 @@ package com.projectDB.Shop.db.repository;
 import com.projectDB.Shop.db.mapper.MerchantRowMapper;
 import com.projectDB.Shop.model.Merchant;
 import org.springframework.dao.EmptyResultDataAccessException;
+
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.PreparedStatementCreator;
 import org.springframework.jdbc.support.GeneratedKeyHolder;
@@ -18,7 +19,7 @@ import java.util.List;
 
 @Component
 public class MerchantRepository {
-    //@Autowired
+
     private final JdbcTemplate jdbcTemplate;
     private final MerchantRowMapper merchantRowMapper = new MerchantRowMapper();
 
@@ -29,7 +30,7 @@ public class MerchantRepository {
     public Merchant get(int id) {
         final String sql = "select * from merchant where merchant.id = " + id;
         try {
-            return (Merchant) jdbcTemplate.queryForObject(sql, merchantRowMapper); // doesnt work
+            return  jdbcTemplate.queryForObject(sql, merchantRowMapper); // doesnt work
         } catch (EmptyResultDataAccessException e) {
             return null;
         }
